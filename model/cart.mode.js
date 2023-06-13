@@ -2,19 +2,27 @@ const mongoose=require('mongoose');
 
 
 const cart=mongoose.Schema({ 
-
-userId:{ 
-type:mongoose.Schema.Types.ObjectId,
-required:true
-},  
-matchId:{ 
-    type:mongoose.Schema.Types.ObjectId,
-    required:false
-    },  
-    standId:{ 
+    Id:{ 
         type:mongoose.Schema.Types.ObjectId,
         required:false
-        }, 
+        },    Ids:{ 
+            type:mongoose.Schema.Types.ObjectId,
+            required:false
+            },   
+         
+       
+            team:{ 
+                type:String,
+                required:false
+                },   
+                venue:{ 
+                    type:String,
+                    required:false
+                    },   
+                    stand:{ 
+                        type:String,
+                        required:false
+                        },  
 Ticketcount:{ 
     type:String, 
     required:true

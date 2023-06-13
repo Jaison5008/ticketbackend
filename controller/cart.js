@@ -4,11 +4,12 @@ const cartroute=express.Router();
 
   
 
-cartroute.get('/cartget',async (req,res)=>{ 
-try{   
-  
+cartroute.get('/cartget/:id',async (req,res)=>{ 
+try{    
+    const{id}=req.params
+    
    
-    const findone= await cart.find(); 
+    const findone= await cart.find({Id:id}); 
     res.status(200).json({msg:findone}); 
 
 }catch(error){ 
@@ -23,13 +24,8 @@ cartroute.post('/cartpost',async(req,res)=>{
     try{   
         const{
     Ticketcount='',
-    
-     
-     
-     
-     
-     }=req.body
-    const oness= new cart({Ticketcount,userId:req.body.id});
+    }=req.body
+    const oness= new cart({Ticketcount,Ids:req.body.Ids,Id:req.body.Id,venue:req.body.venue,team:req.body.team,stand:req.body.stand});
         if(oness){
        await oness.save(); 
        res.status(200).json({msg:"Ticket booking sucess"}); 
